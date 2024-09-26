@@ -1,0 +1,160 @@
+/* Full width hero section */
+.hero-section {
+  display: grid;
+  grid-template-columns: 250px 1fr; /* Sidebar: fixed 250px, Main content: fill remaining */
+  gap: 20px;
+  width: 100%;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Sidebar styling */
+.sidebar {
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  padding: 10px;
+  cursor: pointer;
+  color: #333;
+}
+
+.sidebar-item svg {
+  margin-right: 10px;
+}
+
+.sidebar-item:hover {
+  background-color: #ffebc1; /* Yellowish background on hover */
+  border-radius: 5px;
+}
+
+/* Submenu styling */
+.sidebar-item.collapsible {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sidebar-submenu {
+  display: none;
+  flex-direction: column;
+  padding-left: 15px;
+  margin-top: 10px;
+}
+
+.sidebar-item.active .sidebar-submenu {
+  display: flex;
+}
+
+.sidebar-submenu-item {
+  font-size: 14px;
+  padding: 5px 0;
+}
+
+/* Calendar container (main right section) */
+.calendar-container {
+  display: grid;
+  grid-template-columns: 1fr 300px; /* Calendar grid and right mini calendar */
+  gap: 20px;
+  width: 100%;
+}
+
+/* Main calendar section styling */
+.main-calendar {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendar-header h2 {
+  font-size: 20px;
+  color: #333;
+}
+
+.calendar-header .schedule-btn {
+  background-color: #ffca28;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  font-size: 14px;
+}
+
+/* Calendar itself (grid of events) */
+.calendar-content {
+  display: grid;
+  grid-template-rows: repeat(24, 60px); /* 24 hours, each hour takes up a 60px row */
+  border: 1px solid #ddd;
+  position: relative;
+}
+
+.calendar-event {
+  background-color: #d4e4ff;
+  border-radius: 8px;
+  padding: 10px;
+  position: absolute;
+  left: 0;
+  width: calc(100% - 20px);
+  margin-left: 10px;
+}
+
+/* Mini calendar section (right side) */
+.mini-calendar {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mini-calendar .schedule-categories {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.schedule-category {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+}
+
+.schedule-category-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.category-listen { background-color: #a8d0ff; }
+.category-learn { background-color: #ffb4b4; }
+.category-workout { background-color: #ffcba4; }
+.category-study { background-color: #d4ffba; }
+
+@media (max-width: 768px) {
+  .hero-section {
+    grid-template-columns: 1fr;
+  }
+  .calendar-container {
+    grid-template-columns: 1fr;
+  }
+}
